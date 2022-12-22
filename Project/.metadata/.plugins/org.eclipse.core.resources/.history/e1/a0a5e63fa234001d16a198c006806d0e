@@ -1,0 +1,141 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GUI implements ActionListener
+{
+	// Declaration of members
+	JFrame frame; // window
+	JPanel panel; // Used for laying out buttons
+	JTextField textBox; // Main display window that displays numbers
+	JButton[] numberButtons = new JButton[10]; // JButton array for numbers
+	JButton[] functionButtons = new JButton[10]; // JButton array for functions
+	JButton addButton, subButton, mulButton, divButton, powButton, sqrButton; // Arithmetic functions
+	JButton decButton, negButton, equButton, delButton; // Additional functions
+	
+	// Font 
+	Font numbersFont = new Font("Helvetica", Font.BOLD, 25);
+	Font functFont = new Font("Arial", Font.PLAIN, 25);
+	
+	// FOR ARITHMETIC
+	double num1 = 0.0, num2 = 0.0, evaluate = 0;
+	char operator;
+	
+	GUI()
+	{
+		// Window settings
+		frame = new JFrame("422 Electrical Calculator");
+		frame.setSize(500, 650);
+		frame.setLayout(null); // Going to use a panel for layout of buttons
+		frame.setResizable(false); // Can't resize
+		frame.getContentPane().setBackground(new Color(210,239,238));
+		
+		// Panel for layout
+		panel = new JPanel();
+		panel.setBounds(50,100,300,300);
+		panel.setLayout(new GridLayout(5,4,10,10));
+		panel.setBackground(Color.black);
+		
+		// Textbox
+		textBox = new JTextField();
+		textBox.setBounds(25,25,430,50);
+		textBox.setFont(numbersFont);
+		textBox.setEditable(false); //User can't edit text box
+		
+		// Function buttons
+		addButton = new JButton("+");
+		subButton = new JButton("-");
+		mulButton = new JButton("*");
+		divButton = new JButton("/");
+		powButton = new JButton("^");
+		sqrButton = new JButton("sqr.");
+		decButton = new JButton(".");
+		equButton = new JButton("=");
+		negButton = new JButton("neg.");
+		delButton = new JButton("<-");
+		
+		functionButtons[0] = addButton;
+		functionButtons[1] = subButton;
+		functionButtons[2] = mulButton;
+		functionButtons[3] = divButton;
+		functionButtons[4] = powButton;
+		functionButtons[5] = sqrButton;
+		functionButtons[6] = decButton;
+		functionButtons[7] = equButton;
+		functionButtons[8] = negButton;
+		functionButtons[9] = delButton;
+		
+		// Adding  number buttons to array and declaring fields.
+		for(int i = 0; i<10;i++)
+		{
+			numberButtons[i] = new JButton(String.valueOf(i)); // 0-9 
+			numberButtons[i].addActionListener(this); // for clicking on number
+			numberButtons[i].setFocusable(false); // no highlight when user clicks on button
+			numberButtons[i].setFont(numbersFont);
+		}
+		
+		// Adding function buttons to array and declaring certain fields such as font, action listener etc.
+		for(int i = 0; i < 10; i++)
+		{
+			functionButtons[i].setFont(functFont);
+			functionButtons[i].addActionListener(this); // user selects function
+			functionButtons[i].setFocusable(false); // no highlight when user clicks on button
+		}
+		
+		// add to panel layout
+		panel.add(powButton);
+		panel.add(sqrButton);
+		panel.add(negButton);
+		panel.add(delButton);
+		
+		panel.add(numberButtons[1]);
+		panel.add(numberButtons[2]);
+		panel.add(numberButtons[3]);
+		panel.add(addButton);
+		
+		panel.add(numberButtons[4]);
+		panel.add(numberButtons[5]);
+		panel.add(numberButtons[6]);
+		panel.add(subButton);
+		
+		panel.add(numberButtons[7]);
+		panel.add(numberButtons[8]);
+		panel.add(numberButtons[9]);
+		panel.add(mulButton);
+		
+		panel.add(numberButtons[0]);
+		panel.add(decButton);
+		panel.add(equButton);
+		panel.add(divButton);
+		
+		// Add everything to frame(window)
+		frame.add(panel); // add buttons
+		frame.add(textBox); // add textbox
+		frame.setVisible(true); // show window
+		
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		for(int i = 0; i < 10; i++)
+		{
+			if(e.getSource() == numberButtons[i])
+			{
+				textBox.setText(textBox.getText().concat(String.valueOf(i)));
+			}
+		}
+	}
+	
+	
+	
+	
+}

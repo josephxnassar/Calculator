@@ -1,0 +1,40 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GUI implements ActionListener
+{
+	// Declaration of members
+	JFrame frame; // window
+	JPanel panel; // Used for laying out buttons
+	JTextField textBox; // Main display window that displays numbers
+	JButton[] numberButtons = new JButton[10]; // JButton array for numbers
+	JButton[] functionButtons = new JButton[11]; // JButton array for functions
+	JButton addButton, subButton, mulButton, divButton, powButton, sqrButton; // Functions
+	JButton decButton, negButton, equButton, delButton; // Additional functions
+	
+	// Font 
+	Font numbersFont = new Font("Helvetica", Font.BOLD, 25);
+	Font functFont = new Font("Helvetica CY", Font.PLAIN, 25);
+	
+	double num1 = 0.0, num2 = 0.0, evaluate = 0;
+	char operator;
+	
+	GUI()
+	{
+		// Window settings
+		frame = new JFrame("422 Electrical Calculator");
+		frame.setSize(500, 650);
+		frame.setLayout(null);
+		
+	}
+	
+	
+	
+	
+}

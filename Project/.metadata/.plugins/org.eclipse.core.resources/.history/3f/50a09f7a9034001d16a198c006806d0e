@@ -1,0 +1,17 @@
+import javax.swing.JFrame;
+
+public class LearnJava
+{
+	public static void main(String[] args)
+	{
+		JFrame frame = new JFrame(); //Create a frame
+		
+		frame.setVisible(true); //Make visible
+		frame.setSize(420,420); //sets the x and y dimension of frame.
+		frame.setTitle("Electrical Calculator"); // Sets title of window.
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Closes window when hit x button.
+		frame.setResizable(false); //Prevent resizing of frame.
+		
+		
+	}
+}

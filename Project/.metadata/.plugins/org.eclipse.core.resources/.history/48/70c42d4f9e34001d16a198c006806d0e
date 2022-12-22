@@ -1,0 +1,81 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GUI implements ActionListener
+{
+	// Declaration of members
+	JFrame frame; // window
+	JPanel panel; // Used for laying out buttons
+	JTextField textBox; // Main display window that displays numbers
+	JButton[] numberButtons = new JButton[10]; // JButton array for numbers
+	JButton[] functionButtons = new JButton[10]; // JButton array for functions
+	JButton addButton, subButton, mulButton, divButton, powButton, sqrButton; // Arithmetic functions
+	JButton decButton, negButton, equButton, delButton; // Additional functions
+	
+	// Font 
+	Font numbersFont = new Font("Helvetica", Font.BOLD, 25);
+	Font functFont = new Font("Helvetica CY", Font.PLAIN, 25);
+	
+	double num1 = 0.0, num2 = 0.0, evaluate = 0;
+	char operator;
+	
+	GUI()
+	{
+		// Window settings
+		frame = new JFrame("422 Electrical Calculator");
+		frame.setSize(500, 650);
+		frame.setLayout(null); // Going to use a panel for layout of buttons
+		
+		// Textbox
+		textBox = new JTextField();
+		textBox.setBounds(50,25,300,50);
+		textBox.setFont(numbersFont);
+		textBox.setEditable(false); //User can't edit text box
+		
+		// Function buttons
+		addButton = new JButton("+");
+		subButton = new JButton("-");
+		mulButton = new JButton("*");
+		divButton = new JButton("/");
+		powButton = new JButton("^");
+		sqrButton = new JButton("sqr.");
+		decButton = new JButton(".");
+		equButton = new JButton("=");
+		negButton = new JButton("neg.");
+		delButton = new JButton("<-");
+		
+		functionButtons[0] = addButton;
+		functionButtons[1] = subButton;
+		functionButtons[2] = mulButton;
+		functionButtons[3] = divButton;
+		functionButtons[4] = powButton;
+		functionButtons[5] = sqrButton;
+		functionButtons[6] = decButton;
+		functionButtons[7] = equButton;
+		functionButtons[8] = negButton;
+		functionButtons[9] = delButton;
+		
+		// Adding  number buttons to array and declaring fields.
+		for(int i = 0; i<10;i++)
+		{
+			numberButtons[i] = new JButton(String.valueOf(i)); // 0-9 
+			numberButtons[i].addActionListener(this); // for clicking on number
+			numberButtons[i].setFocusable(false); // no highlight when user clicks on button
+			numberButtons[i].setFont(numbersFont);
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+}

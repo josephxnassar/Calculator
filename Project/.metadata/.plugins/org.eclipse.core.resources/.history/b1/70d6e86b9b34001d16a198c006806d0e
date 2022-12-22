@@ -1,0 +1,17 @@
+import java.awt.Color;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GUI implements ActionListener
+{
+	JFrame frame;
+	JPanel panel;
+	JTextField textBox;
+	JButton[] numberButtons = new JButton[10];
+	JButton[] functionButtons = new JButton[
+	
+}
